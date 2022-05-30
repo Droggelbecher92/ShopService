@@ -28,12 +28,11 @@ public class ShopService {
                 .anyMatch(p -> myProducts.get(p).isEmpty());
         if (unknownIDPresent){
             throw new NoSuchElementException();
-        } else {
-            List<Product> orderedProducts = productsToOrder.stream()
-                    .map(p -> getProduct(p))
-                    .toList();
-            myOrders.add(new Order(orderedProducts));
         }
+        List<Product> orderedProducts = productsToOrder.stream()
+                .map(p -> getProduct(p))
+                .toList();
+        myOrders.add(new Order(orderedProducts));
     }
 
     public Order getOrder(String id){

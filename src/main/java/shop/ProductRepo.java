@@ -14,7 +14,7 @@ public class ProductRepo {
     }
 
     public List<Product> list(){
-        return null;
+        return allMyProducts.values().stream().toList();
     }
 
     public Product get(String whichId){

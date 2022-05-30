@@ -18,7 +18,7 @@ public class ShopService {
     }
 
     public List<Product> listProducts(){
-        return null;
+        return myProducts.list();
     }
 
     public void addOrder(Order orderToAdd){

@@ -2,11 +2,12 @@ package shop;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class OrderRepo {
 
-    private HashMap<String,Order> allMyOrders = new HashMap<>();
+    private Map<String,Order> allMyOrders = new HashMap<>();
 
     public List<Order> list(){
         return allMyOrders.values().stream().toList();

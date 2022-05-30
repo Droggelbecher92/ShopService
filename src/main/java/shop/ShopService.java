@@ -2,6 +2,7 @@ package shop;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class ShopService {
 
@@ -23,11 +24,16 @@ public class ShopService {
     }
 
     public void addOrder(List<String> productsToOrder){
-        List<Product> orderedProducts = new ArrayList<>();
-        for (String id : productsToOrder){
-            orderedProducts.add(getProduct(id));
+        boolean unknownIDPresent = productsToOrder.stream()
+                .anyMatch(p -> myProducts.get(p).isEmpty());
+        if (unknownIDPresent){
+            throw new NoSuchElementException();
+        } else {
+            List<Product> orderedProducts = productsToOrder.stream()
+                    .map(p -> getProduct(p))
+                    .toList();
+            myOrders.add(new Order(orderedProducts));
         }
-        myOrders.add(new Order(orderedProducts));
     }
 
     public Order getOrder(String id){

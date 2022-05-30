@@ -2,16 +2,16 @@ package shop;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class ProductRepo {
 
-    private HashMap<String,Product> allMyProducts = new HashMap<>();
+    private Map<String,Product> allMyProducts = new HashMap<>();
 
     public ProductRepo(List<Product> products) {
-        for(Product currentProduct : products){
-            allMyProducts.put(currentProduct.getId(), currentProduct);
-        }
+        allMyProducts = products.stream().collect(Collectors.toMap(p -> p.getId(), p -> p));
     }
 
     public List<Product> list(){

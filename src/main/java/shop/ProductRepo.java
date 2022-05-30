@@ -2,6 +2,7 @@ package shop;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 public class ProductRepo {
 
@@ -17,7 +18,7 @@ public class ProductRepo {
         return allMyProducts.values().stream().toList();
     }
 
-    public Product get(String whichId){
-        return null;
+    public Optional<Product> get(String whichId){
+        return Optional.ofNullable(allMyProducts.get(whichId));
     }
 }

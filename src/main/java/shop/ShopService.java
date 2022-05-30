@@ -14,7 +14,7 @@ public class ShopService {
 
 
     public Product getProduct(String id){
-        return null;
+        return myProducts.get(id).orElseThrow();
     }
 
     public List<Product> listProducts(){

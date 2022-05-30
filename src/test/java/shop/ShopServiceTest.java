@@ -3,6 +3,7 @@ package shop;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,11 +34,24 @@ class ShopServiceTest {
         //GIVEN
         ShopService testService = buildShop();
         List<Product> products = testService.listProducts();
+        Product expected = products.get(1);
         //WHEN
-
+        Product actual = testService.getProduct(expected.getId());
         //THEN
-
+        assertEquals(expected, actual);
     }
+
+    @Test
+    void shouldThrowWithInvalidID(){
+        //GIVEN
+        ShopService testService = buildShop();
+        List<Product> products = testService.listProducts();
+        Product expected = products.get(1);
+        //WHEN
+        //THEN
+        assertThrows(NoSuchElementException.class, () -> testService.getProduct("INVALID"));
+    }
+
 
 
     //Hilfsmethoden
@@ -51,7 +65,6 @@ class ShopServiceTest {
         OrderRepo oRepo = new OrderRepo();
 
         return new ShopService(pRepo,oRepo);
-
     }
 
 }

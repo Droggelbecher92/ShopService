@@ -12,10 +12,10 @@ class ShopServiceTest {
     @Test
     void shouldReturnAllProducts(){
         //GIVEN
-        Product p1 = new Product("Wasser");
-        Product p2 = new Product("Bier");
-        Product p3 = new Product("Messer");
-        Product p4 = new Product("Teller");
+        Product p1 = new FoodAndBeverageProduct("Wasser");
+        Product p2 = new FoodAndBeverageProduct("Bier");
+        Product p3 = new NonFoodProduct("Messer");
+        Product p4 = new NonFoodProduct("Teller");
 
         ProductRepo pRepo = new ProductRepo(List.of(p1,p2,p3,p4));
         OrderRepo oRepo = new OrderRepo();
@@ -55,10 +55,10 @@ class ShopServiceTest {
     @Test
     void shouldAddNewOrder(){
         //GIVEN
-        Product p1 = new Product("Wasser");
-        Product p2 = new Product("Bier");
-        Product p3 = new Product("Messer");
-        Product p4 = new Product("Teller");
+        Product p1 = new FoodAndBeverageProduct("Wasser");
+        Product p2 = new FoodAndBeverageProduct("Bier");
+        Product p3 = new NonFoodProduct("Messer");
+        Product p4 = new NonFoodProduct("Teller");
 
         ProductRepo pRepo = new ProductRepo(List.of(p1,p2,p3,p4));
         OrderRepo oRepo = new OrderRepo();
@@ -74,10 +74,10 @@ class ShopServiceTest {
     @Test
     void shouldThrowWithInvalidId(){
         //GIVEN
-        Product p1 = new Product("Wasser");
-        Product p2 = new Product("Bier");
-        Product p3 = new Product("Messer");
-        Product p4 = new Product("Teller");
+        Product p1 = new FoodAndBeverageProduct("Wasser");
+        Product p2 = new FoodAndBeverageProduct("Bier");
+        Product p3 = new NonFoodProduct("Messer");
+        Product p4 = new NonFoodProduct("Teller");
 
         ProductRepo pRepo = new ProductRepo(List.of(p1,p2,p3,p4));
         OrderRepo oRepo = new OrderRepo();
@@ -91,10 +91,10 @@ class ShopServiceTest {
     @Test
     void shouldGetOrderById(){
         //GIVEN
-        Product p1 = new Product("Wasser");
-        Product p2 = new Product("Bier");
-        Product p3 = new Product("Messer");
-        Product p4 = new Product("Teller");
+        Product p1 = new FoodAndBeverageProduct("Wasser");
+        Product p2 = new FoodAndBeverageProduct("Bier");
+        Product p3 = new NonFoodProduct("Messer");
+        Product p4 = new NonFoodProduct("Teller");
 
         ProductRepo pRepo = new ProductRepo(List.of(p1,p2,p3,p4));
         OrderRepo oRepo = new OrderRepo();
@@ -110,10 +110,10 @@ class ShopServiceTest {
     @Test
     void shouldThrowWithInvalidOrderId(){
         //GIVEN
-        Product p1 = new Product("Wasser");
-        Product p2 = new Product("Bier");
-        Product p3 = new Product("Messer");
-        Product p4 = new Product("Teller");
+        Product p1 = new FoodAndBeverageProduct("Wasser");
+        Product p2 = new FoodAndBeverageProduct("Bier");
+        Product p3 = new NonFoodProduct("Messer");
+        Product p4 = new NonFoodProduct("Teller");
 
         ProductRepo pRepo = new ProductRepo(List.of(p1,p2,p3,p4));
         OrderRepo oRepo = new OrderRepo();
@@ -131,10 +131,10 @@ class ShopServiceTest {
 
     //Hilfsmethoden
     private ShopService buildShop(){
-        Product p1 = new Product("Wasser");
-        Product p2 = new Product("Bier");
-        Product p3 = new Product("Messer");
-        Product p4 = new Product("Teller");
+        Product p1 = new FoodAndBeverageProduct("Wasser");
+        Product p2 = new FoodAndBeverageProduct("Bier");
+        Product p3 = new NonFoodProduct("Messer");
+        Product p4 = new NonFoodProduct("Teller");
 
         ProductRepo pRepo = new ProductRepo(List.of(p1,p2,p3,p4));
         OrderRepo oRepo = new OrderRepo();

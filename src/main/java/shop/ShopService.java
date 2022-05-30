@@ -1,5 +1,6 @@
 package shop;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShopService {
@@ -21,16 +22,20 @@ public class ShopService {
         return myProducts.list();
     }
 
-    public void addOrder(Order orderToAdd){
-
+    public void addOrder(List<String> productsToOrder){
+        List<Product> orderedProducts = new ArrayList<>();
+        for (String id : productsToOrder){
+            orderedProducts.add(getProduct(id));
+        }
+        myOrders.add(new Order(orderedProducts));
     }
 
     public Order getOrder(String id){
-        return null;
+        return myOrders.get(id).orElseThrow();
     }
 
     public List<Order> listOrders(){
-        return null;
+        return myOrders.list();
     }
 
 }

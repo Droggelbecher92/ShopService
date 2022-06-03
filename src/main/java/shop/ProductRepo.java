@@ -1,9 +1,12 @@
 package shop;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class ProductRepo {
 
     private HashMap<String,Product> allMyProducts = new HashMap<>();
@@ -20,5 +23,10 @@ public class ProductRepo {
 
     public Optional<Product> get(String whichId){
         return Optional.ofNullable(allMyProducts.get(whichId));
+    }
+
+    public Product add(Product product) {
+        allMyProducts.put(product.getId(), product);
+        return product;
     }
 }

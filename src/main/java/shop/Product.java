@@ -1,24 +1,24 @@
 package shop;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
+@NoArgsConstructor
+@Getter
+@Setter
 public class Product {
 
-    private final String name;
-    private final String id;
+    private String name;
+    private final String id = UUID.randomUUID().toString();
 
     public Product(String name) {
         this.name = name;
-        id = UUID.randomUUID().toString();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getId() {
-        return id;
     }
 
     @Override

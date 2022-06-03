@@ -1,8 +1,11 @@
 package shop;
 
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class ShopService {
 
     private final ProductRepo myProducts;
@@ -22,12 +25,12 @@ public class ShopService {
         return myProducts.list();
     }
 
-    public void addOrder(List<String> productsToOrder){
+    public Order addOrder(List<String> productsToOrder){
         List<Product> orderedProducts = new ArrayList<>();
         for (String id : productsToOrder){
             orderedProducts.add(getProduct(id));
         }
-        myOrders.add(new Order(orderedProducts));
+        return myOrders.add(new Order(orderedProducts));
     }
 
     public Order getOrder(String id){
@@ -38,4 +41,7 @@ public class ShopService {
         return myOrders.list();
     }
 
+    public Product addProduct(Product product) {
+        return myProducts.add(product);
+    }
 }
